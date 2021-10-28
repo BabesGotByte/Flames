@@ -1,0 +1,4 @@
+# Project exclude paths
+/.dart_tool/
+/flames/.dart_tool/
+/flames/build/
