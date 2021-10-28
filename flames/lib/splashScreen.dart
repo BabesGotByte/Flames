@@ -1,4 +1,5 @@
 import 'package:flames/welcomeScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -37,8 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
                         height: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
                           gradient : LinearGradient(
-                          begin: Alignment(0.5,0.5),
-                          end: Alignment(-0.5,0.5),
+                          // begin: Alignment(0.5,0.5),
+                          // end: Alignment(-0.5,0.5),
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           colors: [Color.fromRGBO(255, 159, 17, 1),Color.fromRGBO(240, 3, 89, 1),Color.fromRGBO(241, 93, 147, 1)]
                           ),
                          ),

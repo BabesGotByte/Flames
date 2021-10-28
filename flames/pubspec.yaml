@@ -43,6 +43,7 @@ flutter:
   assets:
     - "assets/images/fire_main.svg"
     - "assets/images/heart_main.svg"
+    - "assets/images/bike.png"
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
