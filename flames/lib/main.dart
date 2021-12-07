@@ -1,3 +1,5 @@
+import 'package:flames/letter.dart';
+import 'package:flames/percent.dart';
 import 'package:flames/splashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.pinkAccent[400],
       ),
       home: SplashScreen(),
     );

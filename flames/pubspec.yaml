@@ -24,12 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-#  flutter_svg: ^0.23.0+1
+  share: ^2.0.4
+  percent_indicator: ^3.4.0
 
 dev_dependencies:
   flutter_test:
@@ -41,9 +38,23 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - "assets/images/fire_main.svg"
-    - "assets/images/heart_main.svg"
+    - "assets/images/file_main.png"
+    - "assets/images/heart_main.png"
     - "assets/images/bike.png"
+    - "assets/images/heart2.png"
+    - "assets/images/heart3.png"
+    - "assets/images/Circle.png"
+    - "assets/images/Vector1.png"
+    - "assets/images/Vector2.png"
+    - "assets/images/&.png"
+    - "assets/images/fire.png"
+    - "assets/images/heart.png"
+    - "assets/images/heartfire.png"
+    - "assets/images/Top.png"
+    - "assets/images/Vector.png"
+    - "assets/images/Vector3.png"
+    - "assets/images/Vector4.png"
+    - "assets/images/Group.png"
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -51,6 +62,16 @@ flutter:
     - family: "Raleway"
       fonts:
         - asset: "font/Raleway-ExtraBoldItalic.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Raleway"
+      fonts:
+        - asset: "font/Raleway-VariableFont_wght.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Milonga"
+      fonts:
+        - asset: "font/Milonga-Regular.ttf"
           style: "normal"
           weight: 400
   uses-material-design: true

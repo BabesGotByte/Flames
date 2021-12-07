@@ -1,6 +1,8 @@
 import 'package:flames/login.dart';
+import 'package:flames/option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:math' as math;
 
 class WelcomeScreen extends StatefulWidget {
 
@@ -9,6 +11,7 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +19,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Stack(
         children: <Widget>[
           Positioned(
-            top: MediaQuery.of(context).size.height*(10/100),
-            left: MediaQuery.of(context).size.width*(20/100),
-            right: MediaQuery.of(context).size.width*(20/100),
+            top: MediaQuery.of(context).size.height*(7/100),
+            left: MediaQuery.of(context).size.width*(10/100),
+            right: MediaQuery.of(context).size.width*(10/100),
             child: Container(
-                width: MediaQuery.of(context).size.width*(60/100),
-                height: MediaQuery.of(context).size.height*(40/100),
+                width: MediaQuery.of(context).size.width*(50/100),
+                height: MediaQuery.of(context).size.height*(45/100),
                 decoration: BoxDecoration(
                   image : DecorationImage(
                       image: AssetImage('assets/images/bike.png'),
@@ -55,13 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             top: MediaQuery.of(context).size.height*(54/100),
             left: MediaQuery.of(context).size.width*(6/100),
             right: MediaQuery.of(context).size.width*(6/100),
-            child: GestureDetector(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Login()),
-                );
-              },
+
             child:Text('Explore the world of love with Flames!', textAlign: TextAlign.left, style: TextStyle(
                 color: Color.fromRGBO(255, 255, 255, 1),
                 fontFamily: 'Montserrat',
@@ -71,7 +68,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 height: 1
             ),
             ),
-        ),
         ),
           Positioned(
               top: MediaQuery.of(context).size.height*(62/100),
@@ -87,6 +83,56 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ),
               ),
           ),
+          Positioned(
+            top: MediaQuery.of(context).size.height*(55/100),
+            left:-MediaQuery.of(context).size.width*(10/100),
+            child: Container(
+                width: MediaQuery.of(context).size.width*(60/100),
+                height: MediaQuery.of(context).size.height*(75/100),
+                child: Transform.rotate(
+                  angle: 6 * (math.pi / 180),
+                  child: Container(
+                      decoration: BoxDecoration(
+                        image : DecorationImage(
+                            image: AssetImage('assets/images/heart3.png'),
+                            fit: BoxFit.fitWidth
+                        ),
+                      )
+                  ),
+            )
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.height*(8/100),
+            right:MediaQuery.of(context).size.width*(10/100),
+            child: FlatButton(
+                  onPressed: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                      );
+                  },
+                  child: new Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                    size: 20.0,
+                  ),
+                  shape: new CircleBorder(),
+                  color: Colors.white,
+                )
+            ),
+            // child: Container(
+            //     width: MediaQuery.of(context).size.width*(20/100),
+            //     height: MediaQuery.of(context).size.height*(10/100),
+            //       child: Container(
+            //           decoration: BoxDecoration(
+            //             image : DecorationImage(
+            //                 image: AssetImage('assets/images/Circle.png'),
+            //                 fit: BoxFit.fitWidth
+            //             ),
+            //           )
+            //       ),
+            // ),
     ]
     )
     ),
