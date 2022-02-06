@@ -27,15 +27,25 @@ dependencies:
   cupertino_icons: ^1.0.2
   share: ^2.0.4
   percent_indicator: ^3.4.0
+  google_mobile_ads: ^1.0.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.0
+
+flutter_icons:
+  image_path: "assets/flamelogo.png"
+  android: true
+  ios: true
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
+
+
 flutter:
   assets:
     - "assets/images/file_main.png"
@@ -55,23 +65,88 @@ flutter:
     - "assets/images/Vector3.png"
     - "assets/images/Vector4.png"
     - "assets/images/Group.png"
+    - "assets/images/heart9.png"
+    - "assets/images/Frame3.png"
+    - "assets/images/Frame4.png"
+    - "assets/images/pc1.png"
+    - "assets/images/pc2.png"
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   fonts:
-    - family: "Raleway"
+    - family: "Raleway1"
       fonts:
         - asset: "font/Raleway-ExtraBoldItalic.ttf"
           style: "normal"
           weight: 400
-    - family: "Raleway"
+    - family: "Raleway2"
       fonts:
         - asset: "font/Raleway-VariableFont_wght.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Raleway-Bold"
+      fonts:
+        - asset: "font/Raleway-Bold.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Raleway-Medium"
+      fonts:
+        - asset: "font/Raleway-Medium.ttf"
           style: "normal"
           weight: 400
     - family: "Milonga"
       fonts:
         - asset: "font/Milonga-Regular.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Montserrat"
+      fonts:
+        - asset: "font/Montserrat-ExtraBold.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Ribeye-Regular"
+      fonts:
+        - asset: "font/Ribeye-Regular.ttf"
+          style: "normal"
+          weight: 600
+    - family: "Montserrat-Welcomepage"
+      fonts:
+        - asset: "font/Montserrat-SemiBold.ttf"
+          style: "normal"
+          weight: 600
+    - family: "Montserrat2"
+      fonts:
+        - asset: "font/Montserrat-Regular.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Montserrat3"
+      fonts:
+        - asset: "font/Montserrat-Bold.ttf"
+          style: "normal"
+          weight: 400
+    - family: "MPLUSRounded1c"
+      fonts:
+        - asset: "font/MPLUSRounded1c-ExtraBold.ttf"
+          style: "normal"
+          weight: 800
+    - family: "Montserrat-Medium"
+      fonts:
+        - asset: "font/Montserrat-Medium.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Comfortaa"
+      fonts:
+        - asset: "font/Comfortaa-Light.ttf"
+          style: "normal"
+          weight: 400
+    - family: "Comfortaa2"
+      fonts:
+        - asset: "font/Comfortaa-Bold.ttf"
+          style: "normal"
+          weight: 400
+    - family: "BlackOpsOne"
+      fonts:
+        - asset: "font/BlackOpsOne-Regular.ttf"
           style: "normal"
           weight: 400
   uses-material-design: true

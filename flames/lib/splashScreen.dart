@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       top:MediaQuery.of(context).size.height*(-5/100),
                       left: MediaQuery.of(context).size.width*(-12/100),
                       child: Transform.rotate(
-                        angle: 10 * (math.pi / 180),
+                        angle: 0 * (math.pi / 180),
                         child: Container(
                             width: MediaQuery.of(context).size.width*(50/100),
                             height: MediaQuery.of(context).size.height*(55/100),
@@ -64,13 +64,13 @@ class _SplashScreenState extends State<SplashScreen> {
                     top: MediaQuery.of(context).size.height*(50/100),
                     right: MediaQuery.of(context).size.width*(-30/100),
                     child: Transform.rotate(
-                      angle: -5 * (math.pi / 180),
+                      angle: 0 * (math.pi / 180),
                     child: Container(
                         width: MediaQuery.of(context).size.width*(90/100),
                         height: MediaQuery.of(context).size.height*(50/100),
                         decoration: BoxDecoration(
                           image : DecorationImage(
-                              image: AssetImage('assets/images/heart.png'),
+                              image: AssetImage('assets/images/heart9.png'),
                               fit: BoxFit.fitWidth
                           ),
                         )
@@ -83,11 +83,18 @@ class _SplashScreenState extends State<SplashScreen> {
                       right: MediaQuery.of(context).size.width*(10/100),
                       child: Text('FLAMES', textAlign: TextAlign.center, style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 1),
-                          fontFamily: 'Raleway',
-                          fontSize: 70,
+                          fontFamily: 'Raleway1',
+                          fontSize: 60,
                           letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                           fontWeight: FontWeight.bold,
-                          height: 1
+                          height: 1,
+                          shadows: [
+                            Shadow(
+                              blurRadius: 4.0,
+                              color: Color.fromRGBO(0, 0, 0, 0.25),
+                              offset: Offset(4.0, 4.0),
+                            ),
+                          ],
                       ),
                       )
                   ),

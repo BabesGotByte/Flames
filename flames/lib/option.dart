@@ -1,8 +1,12 @@
 import 'package:flames/letter.dart';
+import 'package:flames/loading.dart';
+import 'package:flames/login.dart';
 import 'package:flames/percent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/rendering.dart';
 
 class Option extends StatefulWidget {
 
@@ -14,9 +18,23 @@ class Option extends StatefulWidget {
 }
 
 class _OptionState extends State<Option> {
-
   String letter="";
   int perc=0;
+  String intial="";
+  String para="";
+  String f="Friendship";
+  String l="Love";
+  String a="Affection";
+  String m="Marriage";
+  String e="Enemy";
+  String s="Siblings";
+  String fpara="Someone u can always rely on Friendship 👫";
+  String lpara="Seems like you have met your destiny ♥";
+  String apara="It feels like home when you are nearby your person 🤗";
+  String mpara="Wondering when you will ask me to stay forever 💍";
+  String epara="Red Flag 🚩! Something is fisshy out there 🧐";
+  String spara="Sibling: A bond beyond friendship 😜💔";
+
   @override
   void algorithm1(){
       String s1=widget.name;
@@ -118,197 +136,271 @@ class _OptionState extends State<Option> {
       }
 
       if(qq==0){
-        print("0");
         perc=(0);
       }
       else if(qq==1){
-        print(lst[0]);
         perc=(lst[0]);
       }
       else{
-        print(lst[0]*10+lst[1]);
         perc=(lst[0]*10+lst[1]);
       }
   }
 
+  void algo3(){
+    if(letter=="F"){
+      intial=f;
+      para=fpara;
+    }
+    else if(letter=="L"){
+      intial=l;
+      para=lpara;
+    }
+    else if(letter=="A"){
+      intial=a;
+      para=apara;
+    }
+    else if(letter=="M"){
+      intial=m;
+      para=mpara;
+    }
+    else if(letter=="E"){
+      intial=e;
+      para=epara;
+    }
+    if(letter=="S"){
+      intial=s;
+      para=spara;
+    }
+    print(intial);
+    print(para);
+  }
+
+
   void initState() {
     algorithm1();
     algorithm2();
+    algo3();
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-      child: Stack(
-      children: <Widget>[
-        Positioned(
-            top: MediaQuery.of(context).size.height*(0/100),
-            child: GestureDetector(
-              onHorizontalDragEnd: (DragEndDetails details){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Letter(word: letter)),
-                );
-              },
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height*(30/100),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
-                      bottomLeft: Radius.circular(46),
-                      bottomRight: Radius.circular(46),
-                    ),
-                    gradient: LinearGradient(
-                        begin: Alignment(1.1102230246251565e-16, 1),
-                        end: Alignment(-1, 1.1102230246251565e-16),
-                        colors: [
-                          Color.fromRGBO(239, 0, 87, 1),
-                          Color.fromRGBO(241, 93, 147, 1)
-                        ]
-                    ),
+      backgroundColor: Color.fromRGBO(255, 234, 250, 1.0),
+      body: SingleChildScrollView(
+        child: Stack(
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0,40,0,0),
+                      child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(10,0,0,0),
+                                  child: Text('Time to know!', textAlign: TextAlign.end, style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Montserrat-Welcomepage',
+                                      fontSize: 24,
+                                      letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                      fontWeight: FontWeight.normal,
+                                      height: 1
+                                  ),),
+                                ),
+                              ),
+                            ]
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Transform.rotate(
+                                angle: 10.926020572521715 * (math.pi / 180),
+                                child: Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width*(25/100),
+                                      height: MediaQuery.of(context).size.height*(15/100),
+                                      child: Image(image: new AssetImage('assets/images/Vector1.png')),
+                                    )
+                                ),
+                              ),
+                              Transform.rotate(
+                                angle: 10.926020572521715 * (math.pi / 180),
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(0, 50, 20, 0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width*(15/100),
+                                    height: MediaQuery.of(context).size.height*(8/100),
+                                    child: Image(image: new AssetImage('assets/images/Vector2.png')),
+                                  ),
+                                ),
+                              ),
+                            ]
+                        ),
+                      ]
                   ),
-                ),
-            ),
-          ),
-        Positioned(
-          top: MediaQuery.of(context).size.height*(-30/100),
-          left: MediaQuery.of(context).size.width*(-4/100),
-          child: Container(
-              width: MediaQuery.of(context).size.width*(25/100),
-              height: MediaQuery.of(context).size.height*(80/100),
-              decoration: BoxDecoration(
-                image : DecorationImage(
-                    image: AssetImage('assets/images/fire.png'),
-                    fit: BoxFit.fitWidth
-                ),
-              )
-          ),
-        ),
-          Positioned (
-            top: MediaQuery.of(context).size.height*(25/100),
-            left: MediaQuery.of(context).size.height*(45/100),
-            right:MediaQuery.of(context).size.height*(45/100),
-            child: Container(
-              height: MediaQuery.of(context).size.height*(1/100),
-              width: MediaQuery.of(context).size.width * (10 / 100),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            )
-          ),
-        Positioned(
-            top: MediaQuery.of(context).size.height*(15/100),
-          left: MediaQuery.of(context).size.width*(10/100),
-          right: MediaQuery.of(context).size.width*(10/100),
-            child: Center(
-              child: Text('Flames',style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 1),
-              fontFamily: 'Montserrat',
-              fontSize: 50,
-              letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-              fontWeight: FontWeight.normal,
-              height: 1
-            ),
-            ),
-          ),
-          ),
-        Positioned(
-          top: MediaQuery.of(context).size.height*(50/100),
-          left: MediaQuery.of(context).size.width*(20/100),
-          right: MediaQuery.of(context).size.width*(20/100),
-            child: Text('Click to calculate!', textAlign: TextAlign.left, style: TextStyle(
-                  color: Color.fromRGBO(0, 0, 0, 1),
-                  fontFamily: 'Montserrat',
-                  fontSize: 25,
-                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                  fontWeight: FontWeight.normal,
-                  height: 1
-              ),
-              ),
-            ),
-        Positioned(
-            top: MediaQuery.of(context).size.height*(70/100),
-            child: GestureDetector(
-                onHorizontalDragEnd: (DragEndDetails details){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Percent(percent: perc)),
-                    );
-                  },
-                child: Center(
+                  ),
+                  Padding(
+                        padding: EdgeInsets.fromLTRB(15,0,15,0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height*(30/100),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image(
+                                    image: AssetImage('assets/images/pc1.png'),
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height*(20/100),
+                                    fit: BoxFit.fitWidth
+                                ),
+                            ButtonTheme(
+                              minWidth: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height*(5/100),
+                              padding: const EdgeInsets.all(0.0),
+                                buttonColor: Color.fromRGBO(240,4,90, 1),
+                                child: RaisedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Letter(word: letter, intial: intial, para: para, name: widget.name, crushname: widget.crushname)),
+                                    );
+                                  },
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0),bottomRight: Radius.circular(15.0))),
+                                  child: Ink(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height*(5/100),
+                                    decoration: const BoxDecoration(
+                                      gradient : LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [Color.fromRGBO(
+                                              246, 119, 78, 1.0),Color.fromRGBO(240,4,90, 1)]
+                                      ),
+                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0),bottomRight: Radius.circular(15.0)),
+                                    ),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: MediaQuery.of(context).size.height*(5/100),
+                                      // constraints: BoxConstraints(
+                                      //   minWidth: MediaQuery.of(context).size.width,
+                                      //   minHeight: MediaQuery.of(context).size.height*(5/100),
+                                      // ), // min sizes for Material buttons
+                                      alignment: Alignment.center,
+                                      child: Text('Flames',  style: TextStyle(
+                                          color: Color.fromRGBO(255, 255, 255, 1),
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 24,
+                                          letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                          fontWeight: FontWeight.bold,
+                                          height: 1
+                                      ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ),
+                              ]
+                            ),
+                      ),
+                    ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(15,0,15,0),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height*(30/100),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(46),
-                          topRight: Radius.circular(46),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                        ),
-                        gradient: LinearGradient(
-                            begin: Alignment(1.1102230246251565e-16, 1),
-                            end: Alignment(-1, 1.1102230246251565e-16),
-                            colors: [
-                              Color.fromRGBO(239, 0, 87, 1),
-                              Color.fromRGBO(241, 93, 147, 1)
-                            ]
-                        ),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image(
+                                image: AssetImage('assets/images/pc2.png'),
+                                width: MediaQuery.of(context).size.width,
+                                height: MediaQuery.of(context).size.height*(20/100),
+                                fit: BoxFit.fitWidth
+                            ),
+                          ButtonTheme(
+                            minWidth: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height*(5/100),
+                            buttonColor: Color.fromRGBO(239, 0, 87, 1),
+                            padding: const EdgeInsets.all(0.0),
+                            child: RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => Loading(percent: perc, name: widget.name, crushname: widget.crushname)),
+                                  );
+                                },
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0),bottomRight: Radius.circular(15.0))),
+                                child: Ink(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*(5/100),
+                                  decoration: const BoxDecoration(
+                                    gradient : LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [Color.fromRGBO(241, 93, 147, 1),Color.fromRGBO(239, 0, 87, 1)]
+                                    ),
+                                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0),bottomRight: Radius.circular(15.0)),
+                                  ),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                      minWidth: MediaQuery.of(context).size.width,
+                                      minHeight: MediaQuery.of(context).size.height*(5/100),
+                                    ), // min sizes for Material buttons
+                                    alignment: Alignment.center,
+                                    child: Text('Love',  style: TextStyle(
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 24,
+                                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1
+                                    ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ),
+                              ],
+                            ),
                       ),
-                  ),
-                ),
-            )
+                    ),
+                  Column(
+                      children: <Widget>[
+                        GestureDetector(
+                            onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Login()),
+                                );
+                              },
+                         child: Icon(
+                            Icons.replay,
+                            color: Color.fromRGBO(58, 33, 52, .60),),
+                        ),
+                        Text('Re enter names',  style: TextStyle(
+                            color: Color.fromRGBO(58, 33, 52, .60),
+                            fontFamily: 'Montserrat-Medium',
+                            fontSize: 16,
+                            letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                            fontWeight: FontWeight.bold,
+                            height: 1
+                        ),
+                        ),
+                      ]
+                  )
+              ]
             ),
-        Positioned (
-            top: MediaQuery.of(context).size.height*(72/100),
-            left: MediaQuery.of(context).size.height*(45/100),
-            right:MediaQuery.of(context).size.height*(45/100),
-            child: Container(
-              height: 5,
-              width: MediaQuery.of(context).size.width * (10 / 100),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            )
+          ]
         ),
-        Positioned(
-          top: MediaQuery.of(context).size.height*(75/100),
-          left: MediaQuery.of(context).size.width*(10/100),
-          right: MediaQuery.of(context).size.width*(10/100),
-          child: Center(
-            child: Text('Love',style: TextStyle(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                fontFamily: 'Montserrat',
-                fontSize: 50,
-                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                fontWeight: FontWeight.normal,
-                height: 1
-            ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: MediaQuery.of(context).size.height*(75/100),
-          right: MediaQuery.of(context).size.width*(-12/100),
-          child: Container(
-              width: MediaQuery.of(context).size.width*(50/100),
-              height: MediaQuery.of(context).size.height*(40/100),
-              decoration: BoxDecoration(
-                image : DecorationImage(
-                    image: AssetImage('assets/images/heart.png'),
-                    fit: BoxFit.fitWidth
-                ),
-              )
-          ),
-        ),
-      ]
-      ),
       ),
     );
   }

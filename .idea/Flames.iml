@@ -9,6 +9,12 @@
       <excludeFolder url="file://$MODULE_DIR$/flames/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/flames/build" />
       <excludeFolder url="file://$MODULE_DIR$/flames/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/complete/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/complete/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/complete/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/starter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/starter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flames/admob-ads-in-flutter/starter/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

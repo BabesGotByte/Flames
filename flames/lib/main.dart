@@ -2,6 +2,7 @@ import 'package:flames/letter.dart';
 import 'package:flames/percent.dart';
 import 'package:flames/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() {
   runApp(MyApp());
