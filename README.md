@@ -4,10 +4,10 @@
 
 ## App Interface
 
-<img src="Images/Pic1.jpeg" alt="drawing" width="400" height="600"/>
-<img src="Images/Pic2.jpeg" alt="drawing" width="400" height="600"/>
-<img src="Images/Pic3.jpeg" alt="drawing" width="400" height="600"/>
-<img src="Images/Pic4.jpeg" alt="drawing" width="400" height="600"/>
-<img src="Images/Pic5.jpeg" alt="drawing" width="400" height="600"/>
-<img src="Images/Pic6.jpeg" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic1.png" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic2.png" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic3.png" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic4.png" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic5.png" alt="drawing" width="400" height="600"/>
+<img src="Images/Pic6.png" alt="drawing" width="400" height="600"/>
 
