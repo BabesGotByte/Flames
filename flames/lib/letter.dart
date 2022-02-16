@@ -129,7 +129,9 @@ class _LetterState extends State<Letter> {
                   ),
                   RaisedButton(
                       onPressed: () {
-                        Share.share('Hey, check this out! Looks like '+widget.name+' and '+widget.crushname+' share the bond of '+widget.intial+'. You wanna find out yours!!', subject: 'Check out!');
+                        String name = widget.name[0].toUpperCase() + widget.name.substring(1);
+                        String crushname = widget.crushname[0].toUpperCase() + widget.crushname.substring(1);
+                        Share.share('Hey, check this out! Looks like '+name+' and '+crushname+' share the bond of '+widget.intial+'. You wanna find out yours!!', subject: 'Check out!');
                       },
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                       padding: const EdgeInsets.all(0.0),

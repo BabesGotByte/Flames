@@ -15,7 +15,8 @@ class Loading extends StatefulWidget {
   final int percent;
   final String name;
   final String crushname;
-  const Loading({Key? key, required this.percent,required this.name,required this.crushname}) : super(key: key);
+  final String quote;
+  const Loading({Key? key, required this.percent,required this.name,required this.crushname,required this.quote}) : super(key: key);
 
   @override
   _LoadingState createState() => _LoadingState();
@@ -31,7 +32,7 @@ class _LoadingState extends State<Loading> {
 
   _navigatetohome()async{
     await Future.delayed(Duration(milliseconds: 2000),(){});
-    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>Percent(percent: widget.percent, name: widget.name, crushname: widget.crushname)));
+    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>Percent(percent: widget.percent, name: widget.name, crushname: widget.crushname,quote: widget.quote)));
   }
 
   late AnimationController _controller;

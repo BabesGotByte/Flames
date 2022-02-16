@@ -34,6 +34,7 @@ class _OptionState extends State<Option> {
   String mpara="Wondering when you will ask me to stay forever 💍";
   String epara="Red Flag 🚩! Something is fisshy out there 🧐";
   String spara="Sibling: A bond beyond friendship 😜💔";
+  String quote="";
 
   @override
   void algorithm1(){
@@ -180,6 +181,19 @@ class _OptionState extends State<Option> {
     algorithm1();
     algorithm2();
     algo3();
+    func();
+  }
+
+  void func(){
+    if(perc <35){
+      quote="Seems like they aren't compatible with you, keep finding 'the one'";
+    }
+    else if(perc<70){
+      quote="You can balance out the one sided love, keep trying hard";
+    }
+    else{
+      quote="Wow, seems like they are secretly looking for you too!";
+    }
   }
 
 
@@ -256,12 +270,20 @@ class _OptionState extends State<Option> {
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Image(
+                              GestureDetector(
+                                  onTap: (){
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Letter(word: letter, intial: intial, para: para, name: widget.name, crushname: widget.crushname)),
+                                    );
+                                    },
+                                  child: Image(
                                     image: AssetImage('assets/images/pc1.png'),
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height*(20/100),
                                     fit: BoxFit.fitWidth
                                 ),
+                              ),
                             ButtonTheme(
                               minWidth: MediaQuery.of(context).size.width,
                               height: MediaQuery.of(context).size.height*(5/100),
@@ -320,12 +342,16 @@ class _OptionState extends State<Option> {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Image(
+                          GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => Loading(percent: perc, name: widget.name, crushname: widget.crushname, quote: quote)),);},
+                              child: Image(
                                 image: AssetImage('assets/images/pc2.png'),
                                 width: MediaQuery.of(context).size.width,
                                 height: MediaQuery.of(context).size.height*(20/100),
                                 fit: BoxFit.fitWidth
                             ),
+                          ),
                           ButtonTheme(
                             minWidth: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height*(5/100),
@@ -335,7 +361,7 @@ class _OptionState extends State<Option> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Loading(percent: perc, name: widget.name, crushname: widget.crushname)),
+                                    MaterialPageRoute(builder: (context) => Loading(percent: perc, name: widget.name, crushname: widget.crushname, quote: quote)),
                                   );
                                 },
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0),bottomRight: Radius.circular(15.0))),

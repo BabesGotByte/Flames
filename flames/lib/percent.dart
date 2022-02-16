@@ -15,7 +15,8 @@ class Percent extends StatefulWidget {
   final int percent;
   final String name;
   final String crushname;
-  const Percent({Key? key, required this.percent,required this.name,required this.crushname}) : super(key: key);
+  final String quote;
+  const Percent({Key? key, required this.percent,required this.name,required this.crushname,required this.quote}) : super(key: key);
 
   @override
   _PercentState createState() => _PercentState();
@@ -134,7 +135,7 @@ class _PercentState extends State<Percent> {
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                    child: Text("Great compatibility.. go on say it! something more I can’t think of", textAlign: TextAlign.center, style: TextStyle(
+                    child: Text(widget.quote, textAlign: TextAlign.center, style: TextStyle(
                           color: Color.fromRGBO(20, 20, 20, 1.0),
                           fontFamily: 'Montserrat-Medium',
                           fontSize: 12,
@@ -185,7 +186,9 @@ class _PercentState extends State<Percent> {
                   // ),
                   RaisedButton(
                     onPressed: () {
-                      Share.share('Hey, check this out! '+widget.name+' and '+widget.crushname+' shares a bond strength of '+widget.percent.toString()+'. You wanna find out yours!! Link: Coming soon', subject: 'CHeck this out!');
+                      String name = widget.name[0].toUpperCase() + widget.name.substring(1);
+                      String crushname = widget.crushname[0].toUpperCase() + widget.crushname.substring(1);
+                      Share.share('Hey, check this out! '+name+' and '+crushname+' shares a bond strength of '+widget.percent.toString()+'. You wanna find out yours!! Link: Coming soon', subject: 'CHeck this out!');
                     },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                     padding: const EdgeInsets.all(0.0),

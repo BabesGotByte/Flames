@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:flutter/rendering.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Login extends StatefulWidget {
 
@@ -17,6 +18,38 @@ class _LoginState extends State<Login> {
   final myController2 = TextEditingController();
   bool b = true;
 
+  InterstitialAd? _interstitialAd;
+  bool _isInterstitialAdReady = false;
+
+  void _loadInterstitialAd() {
+    InterstitialAd.load(
+      // adUnitId: "ca-app-pub-3940256099942544/1033173712",
+      adUnitId: "ca-app-pub-3940256099942544/8691691433",
+      // adUnitId: AdHelper.interstitialAdUnitId,
+      request: AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          print("Ad loaded successfully");
+          this._interstitialAd = ad;
+          print(ad);
+          _interstitialAd?.show();
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Option(name: myController1.text.toLowerCase(), crushname: myController2.text.toLowerCase(),)),
+              );
+            },
+          );
+          _isInterstitialAdReady = true;
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load an interstitial ad: ${err.message}');
+          _isInterstitialAdReady = false;
+        },
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -224,10 +257,10 @@ class _LoginState extends State<Login> {
                                   // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                 }
                                 else if(myController2.text != "" &&  myController1.text != ""){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => Option(name: myController1.text.toLowerCase(), crushname: myController2.text.toLowerCase(),)),
-                                  );
+                                  _loadInterstitialAd();
+                                  if (!_isInterstitialAdReady) {
+                                    _interstitialAd?.show();
+                                  }
                                 }
                               },
                               child: Center(
